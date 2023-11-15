@@ -42,6 +42,8 @@ Here are some use cases (abilities your project needs to have):
 
 ## Pseudo Code
 >[!warning] Pseudo code is subject to change as the project progresses
+
+
 ```html
 (header stuff)
 	src links to css, js script
