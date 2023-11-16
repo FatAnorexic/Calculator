@@ -60,7 +60,6 @@ Here are some use cases (abilities your project needs to have):
 
 ```js
 function Operator{
-	//constuctor
 	//make event listeners for each of the operands used
 	event listeners for add, subtract, multiply, & divide
 }
