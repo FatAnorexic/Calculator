@@ -59,24 +59,9 @@ Here are some use cases (abilities your project needs to have):
 ```
 
 ```js
-function Operator{
-	//make event listeners for each of the operands used
-	event listeners for add, subtract, multiply, & divide
-}
+//global quearyselector for operand and numbers
 
-function Input{
-	//constructor to be used for object 
-	//determine how many digits this number is limited to 
-	event listeners for buttons 0-9 and keyboard numbers
-}
+event listener for each operator => function to set operator;
 
-function calculator{
-	//object for calculation. 
-	const calc={
-		firstNum:Input(),
-		operand:Operator(),
-		secondNum:Input(),
-	}
-}
 
 ```

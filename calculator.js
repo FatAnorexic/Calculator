@@ -1,23 +1,8 @@
-function Operator(){
-    let operand=document.querySelectorAll('.operand');
-    operand.forEach((op)=>{
-        op.addEventListener('click', ()=>{
-            let text=op.textContent;
-            //Testing to see each button displays
-            console.log(text);
-        });
-    });
-}
 
-function Input(){
+const operands=document.querySelectorAll('.operand');
 
-}
+operands.forEach((op)=> op.addEventListener( 'click', ()=> setOperand(op.textContent)));
 
-function calculator(){
-    const calc={
-        firstNum:Input(),
-        operand:Operator(),
-        secondNum:Input(),
-    }
+function setOperand(operand){
+    console.log(operand);
 }
-Operator();
