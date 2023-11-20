@@ -61,7 +61,11 @@ Here are some use cases (abilities your project needs to have):
 ```js
 //global quearyselector for operand and numbers
 
-event listener for each operator => function to set operator;
+event listener for each operator => evnet(click, => setOperand(operator))
+
+function setOperand{
+	
+}
 
 
 ```
