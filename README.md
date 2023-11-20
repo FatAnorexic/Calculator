@@ -83,5 +83,8 @@ function setNumber(number){
 	}
 }
 
+event listener del button=>(click, (screen)=>{
+	delete last value in textContent for screen;
+})
 
 ```
