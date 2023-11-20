@@ -20,5 +20,13 @@ function setNumber(number){
 
 //function for deleting entries on a screen
 document.querySelector('.delete').addEventListener('click',()=>{
+    if(screen.textContent==='0'){
+        screen.textContent='0';
+    }
     screen.textContent=screen.innerText.slice(0,-1);
+    
+    //we want a base value of zero, always
+    if(screen.textContent===''){
+        screen.textContent='0';
+    }
 });
