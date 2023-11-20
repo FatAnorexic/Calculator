@@ -70,8 +70,12 @@ function setOperand(operator){
 }
 
 function setNumber(number){
-	if previous string index is operator start new number
-	else keep adding digits to string
+	if previous string index is operator start new number{
+
+	}
+	else keep adding digits to string{
+		if the first element is 0, string[0]=new input value
+	}
 }
 
 
