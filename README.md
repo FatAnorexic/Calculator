@@ -55,6 +55,11 @@ Here are some use cases (abilities your project needs to have):
 			(buttons 0-9)
 		<div operands>
 			(buttons + - * / . del clear clearAll =)
+		<div equal button>
+			<!-- Very important operation! several actions need to happen when this button is called -->
+			(button = )
+		<div clear and del>
+			(buttons clear and del)
 	<div footer>
 ```
 
