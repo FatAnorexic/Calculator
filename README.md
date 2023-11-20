@@ -62,9 +62,16 @@ Here are some use cases (abilities your project needs to have):
 //global quearyselector for operand and numbers
 
 event listener for each operator => evnet(click, => setOperand(operator))
+event listener for each number => event(click, =>setNumber(number))
 
-function setOperand{
-	
+function setOperand(operator){
+	if string has operator jump to equal function first
+	else add operator to string
+}
+
+function setNumber(number){
+	if previous string index is operator start new number
+	else keep adding digits to string
 }
 
 
