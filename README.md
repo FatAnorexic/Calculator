@@ -95,4 +95,12 @@ event listener del button=>(click, (screen)=>{
 	we restore a value of 0;
 })
 
+event listener AC button=>(click, (screen, obj)=>{
+	delete values on screen and scrub the values in object{
+		firstInput:0
+		operand:+
+		secondInput:0
+	}
+})
+
 ```

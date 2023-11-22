@@ -4,6 +4,8 @@ const numbers=document.querySelectorAll('.number');
 
 const screen=document.getElementById('currentScreen');
 
+//Initializer for screen.textContent
+screen.textContent='0';
 
 numbers.forEach(number => number.addEventListener('click',()=>setNumber(number.textContent)))
 operands.forEach((op)=> op.addEventListener( 'click', ()=> setOperand(op.textContent)));
@@ -15,7 +17,11 @@ function setOperand(operand){
 
 function setNumber(number){
     console.log(number);
-    screen.textContent+=number;
+    if(isFirst(number) && number!==0){
+        screen.textContent=number;
+    }else{
+        screen.textContent+=number;
+    }
 }
 
 function isDigit(){
@@ -37,7 +43,7 @@ function isDigit(){
 //boolean value.
 function isFirst(number){
     let string=screen.textContent;
-    if(string.length<2 && number!=='0'){
+    if(string.length===1 && screen.textContent==='0'){
         return true;
     }
     return false;
