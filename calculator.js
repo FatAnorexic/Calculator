@@ -18,15 +18,26 @@ function setNumber(number){
     screen.textContent+=number;
 }
 
+function isDigit(){
+    //converting the text content into a string we can analyze via element
+    let string=screen.textContent;
+    console.log(string);
+    if(!parseInt(string[string.length-1])){ 
+        console.log('fire');
+        return false;
+    }
+    return true;
+}
+
 //function for deleting entries on a screen
 document.querySelector('.delete').addEventListener('click',()=>{
     if(screen.textContent==='0'){
         screen.textContent='0';
     }
     screen.textContent=screen.innerText.slice(0,-1);
-    
+
     //we want a base value of zero, always
-    if(screen.textContent===''){
+    if(screen.textContent==='' || !isDigit()){
         screen.textContent='0';
     }
 });

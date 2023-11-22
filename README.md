@@ -86,7 +86,7 @@ function setNumber(number){
 event listener del button=>(click, (screen)=>{
 	if the value is 0, keep the value at 0
 	delete last value in textContent for screen;
-	if we have deleted the last value || if the next element is an operand->
+	if we have deleted the last value || if the previous element is an operand->
 	we restore a value of 0;
 })
 
