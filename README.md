@@ -83,10 +83,15 @@ function setNumber(number){
 	}
 }
 
+function isFirst(number){
+	let string = screen.textContent
+	if the string length < 2 and number !=0{screen.textContent=number;}
+}
+
 event listener del button=>(click, (screen)=>{
 	if the value is 0, keep the value at 0
 	delete last value in textContent for screen;
-	if we have deleted the last value || if the previous element is an operand->
+	if we have deleted the last value->
 	we restore a value of 0;
 })
 
