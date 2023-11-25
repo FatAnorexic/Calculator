@@ -21,8 +21,8 @@ let memory={
 //function in order to keep the sequentiality request within the assignment. 
 function setOperand(operand){
     if(memory.operator===''){
-        memory.firstInput=screen.textContent;
-        memory.operator=operand;
+        memory['firstInput']=screen.textContent;
+        memory['operator']=operand;
         screen.textContent='0';
         console.log(`Input: ${memory.firstInput}, Operator: ${memory.operator}`);
     }
@@ -73,4 +73,12 @@ document.querySelector('.delete').addEventListener('click',()=>{
     if(screen.textContent===''){
         screen.textContent='0';
     }
+});
+
+document.querySelector('.clear').addEventListener('click',()=>{
+    memory['firstInput']=0;
+    memory['operator']='';
+    memory['secondInput']=0;
+    console.log(`Input: ${memory['firstInput']}, Operator: ${memory['operator']}, Input: ${memory['secondInput']}`);
+    screen.textContent='0';
 });

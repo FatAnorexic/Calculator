@@ -69,9 +69,11 @@ Here are some use cases (abilities your project needs to have):
 event listener for each operator => evnet(click, => setOperand(operator))
 event listener for each number => event(click, =>setNumber(number))
 
+memoryobj={}
+
 function setOperand(operator){
-	if string has operator jump to equal function first
-	else add operator to string
+	if memobj.operand is empty add input and screen operator
+	else fire calculate function 
 }
 
 function setNumber(number){
@@ -88,6 +90,10 @@ function isFirst(number){
 	if the string length < 2 and number !=0{screen.textContent=number;}
 }
 
+function calculate(){
+	if memobj.secondinput=0 memobj.secinput=parseInt(screen.textcontent)
+}
+
 event listener del button=>(click, (screen)=>{
 	if the value is 0, keep the value at 0
 	delete last value in textContent for screen;
@@ -96,10 +102,10 @@ event listener del button=>(click, (screen)=>{
 })
 
 event listener AC button=>(click, (screen, obj)=>{
-	delete values on screen and scrub the values in object{
-		firstInput:0
-		operand:+
-		secondInput:0
+	delete values on screen and scrub the values in memobj={
+		firstInput:0,
+		operand:'',
+		secondInput:0,
 	}
 })
 
