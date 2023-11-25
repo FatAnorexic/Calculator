@@ -29,40 +29,36 @@ let memory={
 //function in order to keep the sequentiality request within the assignment. 
 function setOperand(operand){
     if(memory['operator']===''){
-        memory['firstInput']=screen.textContent;
         memory['operator']=operand;
         screen.textContent='0';
-        console.log(`Input: ${memory.firstInput}, Operator: ${memory.operator}`);
+        console.log(`Operator: ${memory.operator}`);
     }
 }
 
 function setNumber(number){
-    console.log(number);
-    if(isFirst(number) && number!==0){
+    //Prevents 0's from stacking on values: IE 01123-> 1123
+    if(isFirst() && number!==0){
         screen.textContent=number;
     }else{
         screen.textContent+=number;
     }
+
+    //This will determine if the operator is empty.
+    if(firstInput()){
+        memory['firstInput']+=number;
+    }else{
+        memory['secondInput']+=number;
+    }
 }
 
-function isDigit(){
-    //converting the text content into a string we can analyze via element
-    let string=screen.textContent;
-    // Delete later
-    console.log(string);
-    if(!parseInt(string[string.length-1])){ 
-        // delete upon finalization
-        console.log(string[string.length-1])
-        console.log('fire');
-        return false;
-    }
-    return true;
+function firstInput(){
+    return memory['operator']===''
 }
 
 //This function takes the textContent and determines if the initial 0
 //needs to be replaced with the entered digit or not by returning a 
 //boolean value.
-function isFirst(number){
+function isFirst(){
     let string=screen.textContent;
     if(string.length===1 && screen.textContent==='0'){
         return true;
@@ -75,8 +71,7 @@ function calculate(){
     //temp filler
     operate();
 }
-function operate(){{
-    memory['secondInput']=screen.textContent;
+function operate(){
     let x=parseInt(memory['firstInput']);
     let y=parseInt(memory['secondInput']);
     console.log(x);
@@ -96,7 +91,7 @@ function operate(){{
             screen.textContent=divide(x,y);
             break;
     }
-}}
+}
 
 //Basic math functions. 
 function add(x,y){
@@ -111,6 +106,8 @@ function multiply(x,y){
 function divide(x,y){
     return x/y;
 }
+
+
 //function for deleting entries on a screen
 document.querySelector('.delete').addEventListener('click',()=>{
     if(screen.textContent==='0'){
