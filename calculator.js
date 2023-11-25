@@ -35,11 +35,18 @@ function setOperand(operand){
         memory['operator']=operand;
         screen.textContent='0';
         console.log(`Operator: ${memory['operator']}`);
+    }else if(click===true){
+        memory['operator']=operand;
+        memory['secondInput']='';
+        screen.textContent='0';
+        click=false;
+        console.log(`Operator: ${memory['operator']}, Equals Button: ${click}`);
     }else{
         calculate();
         memory['operator']=operand;
         memory['secondInput']='';
         screen.textContent='0';
+        click=false;
         console.log(`Operator: ${memory['operator']}`);
     }
 }
@@ -141,6 +148,7 @@ document.querySelector('.clear').addEventListener('click',()=>{
     memory['firstInput']='';
     memory['operator']='';
     memory['secondInput']='';
+    click=false;
     console.log(`Input: ${memory['firstInput']}, Operator: ${memory['operator']}, Input: ${memory['secondInput']}`);
     screen.textContent='0';
 });
