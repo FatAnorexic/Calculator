@@ -4,11 +4,14 @@ const numbers=document.querySelectorAll('.number');
 
 const screen=document.getElementById('currentScreen');
 
+
 //Initializer for screen.textContent
 screen.textContent='0';
 
 numbers.forEach(number => number.addEventListener('click',()=>setNumber(number.textContent)))
 operands.forEach((op)=> op.addEventListener( 'click', ()=> setOperand(op.textContent)));
+
+document.getElementById('equal').addEventListener('click', ()=>calculate());
 
 let memory={
     firstInput:0,
