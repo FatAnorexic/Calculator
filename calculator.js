@@ -91,6 +91,7 @@ function operate(){
             screen.textContent=divide(x,y);
             break;
     }
+    memory['firstInput']=screen.textContent;
 }
 
 //Basic math functions. 
