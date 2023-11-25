@@ -91,7 +91,8 @@ function isFirst(number){
 }
 
 function calculate(){
-	if memobj.secondinput=0 memobj.secinput=parseInt(screen.textcontent)
+	let x=firstinput, y=secondinput
+	switch for all operators=> screen.text=x(operator)y
 }
 
 event listener del button=>(click, (screen)=>{

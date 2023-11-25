@@ -19,9 +19,9 @@ document.getElementById('equal').addEventListener('click', ()=>{
 });
 
 let memory={
-    firstInput:0,
+    firstInput:'',
     operator:'',
-    secondInput:0,
+    secondInput:'',
 }
 
 //We check the object here to complete two tasks. 1) to seperate numerical values from operators
@@ -73,29 +73,44 @@ function isFirst(number){
 //function for determining if calculating for int/float numbers
 function calculate(){
     //temp filler
-    calculateInt();
+    operate();
 }
-function calculateInt(){{
-    if(memory['secondInput']===0){memory['secondInput']=screen.textContent;}
+function operate(){{
+    memory['secondInput']=screen.textContent;
     let x=parseInt(memory['firstInput']);
     let y=parseInt(memory['secondInput']);
+    console.log(x);
+    console.log(y);
 
     switch(memory['operator']){
         case '+':
-            screen.textContent=x+y;
+            screen.textContent=add(x,y);
             break;
         case '-':
-            screen.textContent=x-y;
+            screen.textContent=subtract(x,y);
             break;
         case '*':
-            screen.textContent=x*y;
+            screen.textContent=multiply(x,y);
             break;
         case '/':
-            screen.textContent=x/y;
+            screen.textContent=divide(x,y);
             break;
     }
-    console.log(screen.textContent);
 }}
+
+//Basic math functions. 
+function add(x,y){
+    return x+y;
+}
+function subtract(x,y){
+    return x-y;
+}
+function multiply(x,y){
+    return x*y;
+}
+function divide(x,y){
+    return x/y;
+}
 //function for deleting entries on a screen
 document.querySelector('.delete').addEventListener('click',()=>{
     if(screen.textContent==='0'){
@@ -110,9 +125,9 @@ document.querySelector('.delete').addEventListener('click',()=>{
 });
 
 document.querySelector('.clear').addEventListener('click',()=>{
-    memory['firstInput']=0;
+    memory['firstInput']='';
     memory['operator']='';
-    memory['secondInput']=0;
+    memory['secondInput']='';
     console.log(`Input: ${memory['firstInput']}, Operator: ${memory['operator']}, Input: ${memory['secondInput']}`);
     screen.textContent='0';
 });
