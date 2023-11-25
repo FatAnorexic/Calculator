@@ -31,7 +31,13 @@ function setOperand(operand){
     if(memory['operator']===''){
         memory['operator']=operand;
         screen.textContent='0';
-        console.log(`Operator: ${memory.operator}`);
+        console.log(`Operator: ${memory['operator']}`);
+    }else{
+        calculate();
+        memory['operator']=operand;
+        memory['secondInput']='';
+        screen.textContent='0';
+        console.log(`Operator: ${memory['operator']}`);
     }
 }
 
@@ -52,7 +58,7 @@ function setNumber(number){
 }
 
 function firstInput(){
-    return memory['operator']===''
+    return memory['operator']==='';
 }
 
 //This function takes the textContent and determines if the initial 0
@@ -89,8 +95,12 @@ function operate(){
             break;
         case '/':
             screen.textContent=divide(x,y);
+            if(screen.textContent===''){
+                memory['operator']='';
+                screen.textContent='0'
+            }
             break;
-    }
+    }   
     memory['firstInput']=screen.textContent;
 }
 
@@ -105,7 +115,7 @@ function multiply(x,y){
     return x*y;
 }
 function divide(x,y){
-    return x/y;
+    return y===0 ? alert(`Naughty Naughty!`): x/y;
 }
 
 
