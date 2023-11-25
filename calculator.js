@@ -18,6 +18,8 @@ document.getElementById('equal').addEventListener('click', ()=>{
     if(memory['operator']!==''){calculate();}
 });
 
+//Object for storing strings of values. These strings will then be converted to strings or floats
+//depending on the type of input given.
 let memory={
     firstInput:'',
     operator:'',
@@ -49,7 +51,8 @@ function setNumber(number){
         screen.textContent+=number;
     }
 
-    //This will determine if the operator is empty.
+    //Checks for an empty operator to determine if number is appended to 
+    //first or second input in the memory object. 
     if(firstInput()){
         memory['firstInput']+=number;
     }else{
