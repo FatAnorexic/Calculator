@@ -12,10 +12,11 @@ screen.textContent='0';
 numbers.forEach(number => number.addEventListener('click',()=>setNumber(number.textContent)))
 operands.forEach((op)=> op.addEventListener( 'click', ()=> setOperand(op.textContent)));
 
+let click=false;
 //Event listenter for = button
 document.getElementById('equal').addEventListener('click', ()=>{
     //so we dont fire the calculate function without having an operand
-    if(memory['operator']!==''){calculate();}
+    if(memory['operator']!==''){click=true; calculate();}
 });
 
 //Object for storing strings of values. These strings will then be converted to strings or floats
@@ -105,6 +106,7 @@ function operate(){
             break;
     }   
     memory['firstInput']=screen.textContent;
+    console.log(memory['firstInput']);
 }
 
 //Basic math functions. 
