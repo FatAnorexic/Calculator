@@ -8,10 +8,15 @@ const screen=document.getElementById('currentScreen');
 //Initializer for screen.textContent
 screen.textContent='0';
 
+//event listeners for each number 0-9 and each operation except the equals button
 numbers.forEach(number => number.addEventListener('click',()=>setNumber(number.textContent)))
 operands.forEach((op)=> op.addEventListener( 'click', ()=> setOperand(op.textContent)));
 
-document.getElementById('equal').addEventListener('click', ()=>calculate());
+//Event listenter for = button
+document.getElementById('equal').addEventListener('click', ()=>{
+    //so we dont fire the calculate function without having an operand
+    if(memory['operator']!==''){calculate();}
+});
 
 let memory={
     firstInput:0,
@@ -23,7 +28,7 @@ let memory={
 //and 2)If the value operator is not an empty string, the function will pass to the calculate
 //function in order to keep the sequentiality request within the assignment. 
 function setOperand(operand){
-    if(memory.operator===''){
+    if(memory['operator']===''){
         memory['firstInput']=screen.textContent;
         memory['operator']=operand;
         screen.textContent='0';
@@ -65,6 +70,32 @@ function isFirst(number){
     return false;
 }
 
+//function for determining if calculating for int/float numbers
+function calculate(){
+    //temp filler
+    calculateInt();
+}
+function calculateInt(){{
+    if(memory['secondInput']===0){memory['secondInput']=screen.textContent;}
+    let x=parseInt(memory['firstInput']);
+    let y=parseInt(memory['secondInput']);
+
+    switch(memory['operator']){
+        case '+':
+            screen.textContent=x+y;
+            break;
+        case '-':
+            screen.textContent=x-y;
+            break;
+        case '*':
+            screen.textContent=x*y;
+            break;
+        case '/':
+            screen.textContent=x/y;
+            break;
+    }
+    console.log(screen.textContent);
+}}
 //function for deleting entries on a screen
 document.querySelector('.delete').addEventListener('click',()=>{
     if(screen.textContent==='0'){
