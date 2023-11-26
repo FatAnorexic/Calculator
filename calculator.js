@@ -45,15 +45,16 @@ function setOperand(operand){
         calculate();
         memory['operator']=operand;
         memory['secondInput']='';
-        screen.textContent='0';
+        // screen.textContent='0';
         click=false;
         console.log(`Operator: ${memory['operator']}`);
     }
 }
 
 function setNumber(number){
+    let string=screen.textContent
     //Prevents 0's from stacking on values: IE 01123-> 1123
-    if(isFirst() && number!==0){
+    if(string.length===1 && screen.textContent==='0'){
         screen.textContent=number;
     }else{
         screen.textContent+=number;
@@ -72,16 +73,7 @@ function firstInput(){
     return memory['operator']==='';
 }
 
-//This function takes the textContent and determines if the initial 0
-//needs to be replaced with the entered digit or not by returning a 
-//boolean value.
-function isFirst(){
-    let string=screen.textContent;
-    if(string.length===1 && screen.textContent==='0'){
-        return true;
-    }
-    return false;
-}
+
 
 //function for determining if calculating for int/float numbers
 function calculate(){
@@ -113,6 +105,7 @@ function operate(){
             break;
     }   
     memory['firstInput']=screen.textContent;
+    screen.textContent=memory['firstInput']
     console.log(memory['firstInput']);
 }
 
