@@ -20,6 +20,9 @@ screen.textContent='0';
 numbers.forEach(number => number.addEventListener('click',()=>setNumber(number.textContent)))
 operands.forEach((op)=> op.addEventListener( 'click', ()=> setOperand(op.textContent)));
 
+window.addEventListener('keypress', keyBoardInput);
+document.querySelector('.clear').addEventListener('click',()=>clear());
+document.querySelector('.delete').addEventListener('click', ()=>del());
 //Event listenter for = button
 document.getElementById('equal').addEventListener('click', ()=>{
     //so we dont fire the calculate function without having an operand
@@ -31,6 +34,20 @@ document.getElementById('equal').addEventListener('click', ()=>{
 
 //Event listener for adding a decimal
 decimal.addEventListener('click',()=>hasDecimal(decimal.textContent));
+
+//Function to set the keys in a keyboard
+function keyBoardInput(e){
+    (e.key>=0 && e.key <=9) ? setNumber(e.key)
+    : e.key==='.' ? hasDecimal()
+    : e.key=== '=' || e.key === 'Enter' ? calculate()
+    : e.key==='Backspace' ? del()
+    : e.key==='Escape' ? clear()
+    : (e.key==='+'||e.key==='-'||e.key==='*'||e.key==='/') ? setOperand(e.key)
+    : null;
+    console.log(e.key)
+
+}
+
 
 //We check the object here to complete two tasks. 1) to seperate numerical values from operators
 //and 2)If the value operator is not an empty string, the function will pass to the calculate
@@ -59,7 +76,7 @@ function hasDecimal(decimal){
     //if we're attempting to add a new decimal number after clicking an operand
     //this resets and clears the screen with a leading 0 for us. 
     if(reset) {clearScreen('0');}
-    
+
     //Prevents multiple decimal points in a single number. 
     screen.textContent.toString().includes('.') ? null:screen.textContent+=decimal;
 }
@@ -120,19 +137,20 @@ function divide(x,y){
 
 
 //function for deleting entries on a screen
-document.querySelector('.delete').addEventListener('click',()=>{
+function del(){
     screen.textContent=screen.textContent.toString().slice(0,-1);
     //we want a base value of zero, always
     if(screen.textContent===''){
         screen.textContent='0';
     }
-});
+    
+}
 
 //Function for clearing the entire board.
-document.querySelector('.clear').addEventListener('click',()=>{
+function clear(){
     memory['firstInput']='';
     memory['operator']='';
     memory['secondInput']='';
     click=false;
     screen.textContent='0';
-});
+}
