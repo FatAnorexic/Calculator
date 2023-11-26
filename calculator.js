@@ -20,17 +20,11 @@ screen.textContent='0';
 numbers.forEach(number => number.addEventListener('click',()=>setNumber(number.textContent)))
 operands.forEach((op)=> op.addEventListener( 'click', ()=> setOperand(op.textContent)));
 
-window.addEventListener('keypress', keyBoardInput);
+window.addEventListener('keydown', keyBoardInput);
 document.querySelector('.clear').addEventListener('click',()=>clear());
 document.querySelector('.delete').addEventListener('click', ()=>del());
 //Event listenter for = button
-document.getElementById('equal').addEventListener('click', ()=>{
-    //so we dont fire the calculate function without having an operand
-    if(memory['operator']!==''){
-        calculate();
-        click=true;
-    }
-});
+document.getElementById('equal').addEventListener('click', ()=>equal());
 
 //Event listener for adding a decimal
 decimal.addEventListener('click',()=>hasDecimal(decimal.textContent));
@@ -39,7 +33,7 @@ decimal.addEventListener('click',()=>hasDecimal(decimal.textContent));
 function keyBoardInput(e){
     (e.key>=0 && e.key <=9) ? setNumber(e.key)
     : e.key==='.' ? hasDecimal()
-    : e.key=== '=' || e.key === 'Enter' ? calculate()
+    : e.key=== '=' || e.key === 'Enter' ? equal()
     : e.key==='Backspace' ? del()
     : e.key==='Escape' ? clear()
     : (e.key==='+'||e.key==='-'||e.key==='*'||e.key==='/') ? setOperand(e.key)
@@ -48,6 +42,13 @@ function keyBoardInput(e){
 
 }
 
+function equal(){
+    //so we dont fire the calculate function without having an operand
+    if(memory['operator']!==''){
+        calculate();
+        click=true;
+    }
+}
 
 //We check the object here to complete two tasks. 1) to seperate numerical values from operators
 //and 2)If the value operator is not an empty string, the function will pass to the calculate
@@ -154,3 +155,4 @@ function clear(){
     click=false;
     screen.textContent='0';
 }
+
