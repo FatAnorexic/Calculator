@@ -32,7 +32,7 @@ decimal.addEventListener('click',()=>hasDecimal(decimal.textContent));
 //Function to set the keys in a keyboard
 function keyBoardInput(e){
     (e.key>=0 && e.key <=9) ? setNumber(e.key)
-    : e.key==='.' ? hasDecimal()
+    : e.key==='.' ? hasDecimal(e.key)
     : e.key=== '=' || e.key === 'Enter' ? equal()
     : e.key==='Backspace' ? del()
     : e.key==='Escape' ? clear()
