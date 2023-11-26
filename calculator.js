@@ -12,7 +12,9 @@ let reset=false;
 const operands=document.querySelectorAll('.operand');
 const numbers=document.querySelectorAll('.number');
 const screen=document.getElementById('currentScreen');
-const decimal=document.querySelector('.float')
+const decimal=document.querySelector('.float');
+const sign=document.querySelector('.sign');
+
 //Initializer for screen.textContent
 screen.textContent='0';
 
@@ -25,6 +27,7 @@ document.querySelector('.clear').addEventListener('click',()=>clear());
 document.querySelector('.delete').addEventListener('click', ()=>del());
 //Event listenter for = button
 document.getElementById('equal').addEventListener('click', ()=>equal());
+sign.addEventListener('click', changeSign);
 
 //Event listener for adding a decimal
 decimal.addEventListener('click',()=>hasDecimal(decimal.textContent));
@@ -42,6 +45,9 @@ function keyBoardInput(e){
 
 }
 
+function changeSign(){ 
+    screen.textContent=-1*Number(screen.textContent).toString();
+}
 function equal(){
     //so we dont fire the calculate function without having an operand
     if(memory['operator']!==''){
