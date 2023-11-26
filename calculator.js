@@ -56,7 +56,11 @@ function clearScreen(number){
 }
 
 function hasDecimal(decimal){
+    //if we're attempting to add a new decimal number after clicking an operand
+    //this resets and clears the screen with a leading 0 for us. 
     if(reset) {clearScreen('0');}
+    
+    //Prevents multiple decimal points in a single number. 
     screen.textContent.toString().includes('.') ? null:screen.textContent+=decimal;
 }
 
