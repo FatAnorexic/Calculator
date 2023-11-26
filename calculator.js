@@ -12,7 +12,7 @@ let reset=false;
 const operands=document.querySelectorAll('.operand');
 const numbers=document.querySelectorAll('.number');
 const screen=document.getElementById('currentScreen');
-
+const decimal=document.querySelector('.float')
 //Initializer for screen.textContent
 screen.textContent='0';
 
@@ -29,6 +29,9 @@ document.getElementById('equal').addEventListener('click', ()=>{
     }
 });
 
+//Event listener for adding a decimal
+decimal.addEventListener('click',()=>hasDecimal(decimal.textContent));
+
 //We check the object here to complete two tasks. 1) to seperate numerical values from operators
 //and 2)If the value operator is not an empty string, the function will pass to the calculate
 //function in order to keep the sequentiality request within the assignment. 
@@ -43,13 +46,18 @@ function setOperand(operand){
 }
 
 function setNumber(number){
-    //Prevents 0's from stacking on values: IE 01123-> 1123
+    //Prevents 0's or previous inputs from stacking on values: IE 01123-> 1123
     screen.textContent==='0' || reset ? clearScreen(number):screen.textContent+=number;
 }
 
 function clearScreen(number){
     screen.textContent=number;
     reset=false;
+}
+
+function hasDecimal(decimal){
+    if(reset) {clearScreen('0');}
+    screen.textContent.toString().includes('.') ? null:screen.textContent+=decimal;
 }
 
 function calculate(){
@@ -116,6 +124,7 @@ document.querySelector('.delete').addEventListener('click',()=>{
     }
 });
 
+//Function for clearing the entire board.
 document.querySelector('.clear').addEventListener('click',()=>{
     memory['firstInput']='';
     memory['operator']='';
