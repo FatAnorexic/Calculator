@@ -41,7 +41,7 @@ function keyBoardInput(e){
     : e.key==='Escape' ? clear()
     : (e.key==='+'||e.key==='-'||e.key==='*'||e.key==='/') ? setOperand(e.key)
     : null;
-    console.log(e.key)
+    // console.log(e.key)
 
 }
 
@@ -65,7 +65,6 @@ function setOperand(operand){
     
     memory['firstInput']=screen.textContent;
     memory['operator']=operand;
-    console.log(`Operand: ${memory["operator"]}, Input: ${memory['firstInput']}`)
     reset=true;
 }
 
@@ -162,3 +161,10 @@ function clear(){
     screen.textContent='0';
 }
 
+//Add an event listener to prevent the enter key from pressing the buttons
+window.addEventListener('keydown', (e)=>{
+    if(e.target.nodeName==='BUTTON' && e.key==='Enter') {
+        e.preventDefault();
+        return false;
+    } 
+}, true);
