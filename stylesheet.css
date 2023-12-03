@@ -12,16 +12,20 @@
     padding: 20px;
     border-radius: 1em;
 }
+.screens{
+    border-radius: 1em;
+    background-color: #9dab9dba;
+}
 .memory-screen{
     display: flex;
     justify-content: end;
     padding: 5px;
-    background-color: #9dab9dba;
+    font-family: 'Orbitron';
+    font-size: medium;
 }
 .input-screen{
     display: flex;
     justify-content: end;
-    background-color:#9dab9dba;
     font-size: xx-large;
     font-family: 'Orbitron';
     padding: 10px 5px;
@@ -54,10 +58,10 @@
 }
 /* delete later */
 .memory-screen{
-    border: black solid 2px;
+    /* border: black solid 2px; */
 }
 .input-screen{
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 .calculator{
     border: 2px solid black;

@@ -109,10 +109,13 @@ function calculate(){
         alert(`Naughty Naughty!`);
         return;
     }
+
     !click ? memory['secondInput']=screen.textContent:null;
+
     screen.textContent=roundAnswer(
         operate(memory['operator'], memory['firstInput'], memory['secondInput'])
         );
+    
     setMemScreen();
 }
 
@@ -183,5 +186,11 @@ window.addEventListener('keydown', (e)=>{
     if(e.target.nodeName==='BUTTON' && e.key==='Enter') {
         e.preventDefault();
         return false;
-    } 
+    }
+    if(e.key===' '){
+        console.log(e.key);
+        e.stopPropagation();
+        e.preventDefault();
+        return false;
+    }
 }, true);
