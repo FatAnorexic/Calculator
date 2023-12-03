@@ -6,10 +6,10 @@
 
 .calculator{
     margin:10px 467px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
 
 }
 
@@ -22,6 +22,9 @@
     padding: 10px 5px;
 }
 
+#buttons{
+    display: flex;
+}
 /* delete later */
 .input-screen{
     border: 2px solid red;
