@@ -60,12 +60,12 @@ button:active{
     grid-row: span 2;
     background-color: #e4970a;
 }
-.operand,.number,.clear,.delete, #equal{
+.sign,.float,.operand,.number,.clear,.delete, #equal{
     font-size: large;
     font-weight: 800;
     border-radius: 2em;
 }
-.operand,.number,.clear,.delete{
+.sign,.float,.operand,.number,.clear,.delete{
     color: #ffffffe0;
     background-color: #080808e8;
 }
