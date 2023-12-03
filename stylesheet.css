@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 .header{
-    margin:100px;
+    margin:10px;
 }
 .container{
     display: flex;
@@ -11,10 +11,13 @@
     width: 390px;
     padding: 20px;
     border-radius: 1em;
+    background-color: #1f1b1b;
+    box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.5);
 }
 .screens{
     border-radius: 1em;
     background-color: #9dab9dba;
+    box-shadow: inset 0 0 2px 2px #363836d4;
 }
 .memory-screen{
     display: flex;
@@ -32,12 +35,12 @@
 }
 .clear, .delete {
     padding: 20px;
-    border: green solid 3px;
+    /* border: green solid 3px; */
 }
 
 .operand, .number {
     padding: 20px;
-    border: blue solid 1px;
+    /* border: blue solid 1px; */
 }
 /* grid layout and button setup */
 
@@ -48,13 +51,25 @@
     padding:10px;
     padding-top: 30px;
 }
+button{
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+button:active{
+    transform: translateY(3px);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 1.0);
+}
 #equal{
     grid-row: span 2;
+    background-color: #e4970a;
 }
 .operand,.number,.clear,.delete, #equal{
     font-size: large;
     font-weight: 800;
     border-radius: 2em;
+}
+.operand,.number,.clear,.delete{
+    color: #ffffffe0;
+    background-color: #080808e8;
 }
 /* delete later */
 .memory-screen{
