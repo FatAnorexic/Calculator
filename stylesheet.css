@@ -13,6 +13,8 @@
     border-radius: 1em;
 }
 .memory-screen{
+    display: flex;
+    justify-content: end;
     padding: 5px;
     background-color: #9dab9dba;
 }

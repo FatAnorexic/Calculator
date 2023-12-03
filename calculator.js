@@ -6,16 +6,19 @@ let memory={
     secondInput:'',
     operator: '',
 }
+
 let click=false;
 let reset=false;
 
 const operands=document.querySelectorAll('.operand');
 const numbers=document.querySelectorAll('.number');
 const screen=document.getElementById('currentScreen');
+const memScreen=document.getElementById('previousScreen');
 const decimal=document.querySelector('.float');
 const sign=document.querySelector('.sign');
 
-//Initializer for screen.textContent
+//Initializer for screens
+memScreen.textContent='0'
 screen.textContent='0';
 
 //event listeners for each number 0-9 and each operation except the equals button
@@ -65,19 +68,26 @@ function setOperand(operand){
     
     memory['firstInput']=screen.textContent;
     memory['operator']=operand;
+    setMemScreen()
     reset=true;
 }
 
 function setNumber(number){
+    
+    //String shall not grow beyond 12
+    if(screen.textContent.toString().length>=12 && !reset) return;
     //Prevents 0's or previous inputs from stacking on values: IE 01123-> 1123
-    let length=screen.textContent.toString().length;
-    if(length>=12 && !reset) return;
     screen.textContent==='0' || reset ? clearScreen(number):screen.textContent+=number;
 }
 
 function clearScreen(number){
     screen.textContent=number;
     reset=false;
+}
+
+function setMemScreen(){
+    memScreen.textContent=memory['firstInput']+' '+memory['operator']+' '+memory['secondInput'];
+    // memScreen.textContent+=screen.textContent;
 }
 
 function hasDecimal(decimal){
@@ -97,14 +107,17 @@ function calculate(){
         alert(`Naughty Naughty!`);
         return;
     }
-    memory['secondInput']=screen.textContent;
+    !click ? memory['secondInput']=screen.textContent:null;
     screen.textContent=roundAnswer(
         operate(memory['operator'], memory['firstInput'], memory['secondInput'])
         );
+    setMemScreen();
+    memory['firstInput']=screen.textContent;
 }
 
 function roundAnswer(number){
-    return (Math.round(number*1000)/1000).toPrecision(10);
+    return number.toString().length<=12 ? (Math.round(number*1000)/1000):
+    (Math.round(number*1000)/1000).toPrecision(10)
 }
 
 
@@ -161,6 +174,7 @@ function clear(){
     memory['secondInput']='';
     click=false;
     screen.textContent='0';
+    memScreen.textContent='0'
 }
 
 //Add an event listener to prevent the enter key from pressing the buttons
