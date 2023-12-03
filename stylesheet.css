@@ -35,10 +35,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
-    padding:10px
+    padding:10px;
 }
 #equal{
     grid-row: span 2;
+}
+.operand,.number,.clear,.delete, #equal{
+    font-size: large;
+    font-weight: 800;
 }
 /* delete later */
 .input-screen{
