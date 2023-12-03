@@ -22,23 +22,6 @@
     padding: 10px 5px;
 }
 
-#buttons{
-    display: flex;
-}
-
-.clear-delete{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.numbers{
-    display: flex;
-    flex-wrap:wrap;
-}
-.operands{
-    display: flex;
-    flex-wrap: wrap;
-}
 /* delete later */
 .input-screen{
     border: 2px solid red;
