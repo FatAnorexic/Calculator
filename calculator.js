@@ -56,6 +56,8 @@ function equal(){
     if(memory['operator']!==''){
         calculate();
         click=true;
+        setMemScreen();
+        memory['firstInput']=screen.textContent;
     }
 }
 
@@ -86,8 +88,8 @@ function clearScreen(number){
 }
 
 function setMemScreen(){
-    memScreen.textContent=memory['firstInput']+' '+memory['operator']+' '+memory['secondInput'];
-    // memScreen.textContent+=screen.textContent;
+    !click ? memScreen.textContent=memory['firstInput']+' '+memory['operator']:
+    memScreen.textContent=memory['firstInput']+' '+memory['operator']+' '+memory['secondInput']+'=';
 }
 
 function hasDecimal(decimal){
@@ -112,7 +114,6 @@ function calculate(){
         operate(memory['operator'], memory['firstInput'], memory['secondInput'])
         );
     setMemScreen();
-    memory['firstInput']=screen.textContent;
 }
 
 function roundAnswer(number){
