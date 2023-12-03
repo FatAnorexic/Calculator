@@ -30,6 +30,17 @@
     padding: 20px;
     border: blue solid 1px;
 }
+/* grid layout and button setup */
+
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    padding:10px
+}
+#equal{
+    grid-row: span 2;
+}
 /* delete later */
 .input-screen{
     border: 2px solid red;
@@ -37,3 +48,4 @@
 .calculator{
     border: 2px solid black;
 }
+
