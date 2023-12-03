@@ -70,6 +70,8 @@ function setOperand(operand){
 
 function setNumber(number){
     //Prevents 0's or previous inputs from stacking on values: IE 01123-> 1123
+    let length=screen.textContent.toString().length;
+    if(length>=12 && !reset) return;
     screen.textContent==='0' || reset ? clearScreen(number):screen.textContent+=number;
 }
 
