@@ -35,12 +35,10 @@
 }
 .clear, .delete {
     padding: 20px;
-    /* border: green solid 3px; */
 }
 
 .operand, .number {
     padding: 20px;
-    /* border: blue solid 1px; */
 }
 /* grid layout and button setup */
 
@@ -71,14 +69,6 @@ button:active{
     color: #ffffffe0;
     background-color: #080808e8;
 }
-/* delete later */
-.memory-screen{
-    /* border: black solid 2px; */
+.clear{
+    color: rgb(9, 202, 202);
 }
-.input-screen{
-    /* border: 2px solid red; */
-}
-.calculator{
-    border: 2px solid black;
-}
-
