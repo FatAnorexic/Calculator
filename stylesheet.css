@@ -3,14 +3,13 @@
 .header{
     margin:100px;
 }
-
+.container{
+    display: flex;
+    justify-content: center;
+}
 .calculator{
-    margin:10px 467px;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* flex-wrap: wrap; */
-    /* justify-content: center; */
-
+    width: 350px;
+    padding: 20px;
 }
 
 .input-screen{
