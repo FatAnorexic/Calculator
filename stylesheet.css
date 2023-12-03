@@ -21,7 +21,15 @@
     font-family: 'Orbitron';
     padding: 10px 5px;
 }
+.clear, .delete {
+    padding: 10px 30px;
+    border: green solid 3px;
+}
 
+.operand, .number {
+    padding: 20px;
+    border: blue solid 1px;
+}
 /* delete later */
 .input-screen{
     border: 2px solid red;
