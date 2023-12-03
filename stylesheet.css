@@ -12,7 +12,10 @@
     padding: 20px;
     border-radius: 1em;
 }
-
+.memory-screen{
+    padding: 5px;
+    background-color: #9dab9dba;
+}
 .input-screen{
     display: flex;
     justify-content: end;
@@ -48,6 +51,9 @@
     border-radius: 2em;
 }
 /* delete later */
+.memory-screen{
+    border: black solid 2px;
+}
 .input-screen{
     border: 2px solid red;
 }
