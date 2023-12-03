@@ -10,6 +10,7 @@
 .calculator{
     width: 350px;
     padding: 20px;
+    border-radius: 1em;
 }
 
 .input-screen{
@@ -21,7 +22,7 @@
     padding: 10px 5px;
 }
 .clear, .delete {
-    padding: 10px 30px;
+    padding: 20px;
     border: green solid 3px;
 }
 
@@ -36,6 +37,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5px;
     padding:10px;
+    padding-top: 30px;
 }
 #equal{
     grid-row: span 2;
@@ -43,6 +45,7 @@
 .operand,.number,.clear,.delete, #equal{
     font-size: large;
     font-weight: 800;
+    border-radius: 2em;
 }
 /* delete later */
 .input-screen{
