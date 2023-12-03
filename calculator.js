@@ -67,11 +67,16 @@ function equal(){
 function setOperand(operand){
     if(memory['operator']!=='' && !click) {calculate();}
     else if(memory['operator']!=='' && click) {click=false;}
-    
     memory['firstInput']=screen.textContent;
-    memory['operator']=operand;
+    memory['operator']=filter(operand);
     setMemScreen()
     reset=true;
+}
+
+function filter(operator){
+    return (operator==='x'? '*'
+        :operator==='÷'?'/'
+        :operator);
 }
 
 function setNumber(number){
@@ -88,8 +93,12 @@ function clearScreen(number){
 }
 
 function setMemScreen(){
-    !click ? memScreen.textContent=memory['firstInput']+' '+memory['operator']:
-    memScreen.textContent=memory['firstInput']+' '+memory['operator']+' '+memory['secondInput']+'=';
+    let operator='';
+    memory['operator']==='*' ? operator='x'
+    :memory['operator']==='/'? operator='÷'
+    :operator=memory['operator'];
+    !click ? memScreen.textContent=memory['firstInput']+' '+operator:
+    memScreen.textContent=memory['firstInput']+' '+operator+' '+memory['secondInput']+'=';
 }
 
 function hasDecimal(decimal){
