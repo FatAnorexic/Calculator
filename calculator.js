@@ -202,4 +202,8 @@ window.addEventListener('keydown', (e)=>{
         e.preventDefault();
         return false;
     }
+    if(e.key==='/'){
+        e.preventDefault();
+        return false;
+    }
 }, true);
